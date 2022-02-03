@@ -1,12 +1,12 @@
 body {
-  font: 3vh "Verdana", "Trebuchet MS", sans-serif;
+  font: 8vh "Verdana", "Trebuchet MS", sans-serif;
   color: #00261C;
   text-align: center;
   background-color: #168039;
 }
 button {
   border: 0;
-  font: 2vh "Verdana", "Trebuchet MS", sans-serif;
+  font: 6vh "Verdana", "Trebuchet MS", sans-serif;
   color: #96ED89;
   background-color: #45BF55;
   padding: 0.5rem;
@@ -14,7 +14,7 @@ button {
 }
 #gameBoard {
   display: inline-grid;
-  grid: 30vh 30vh 30vh / 30vh 30vh 30vh;
+  grid: 20vh 20vh 20vh / 20vh 20vh 20vh;
   grid-gap: 0;
 }
 #gameBoard > div {
