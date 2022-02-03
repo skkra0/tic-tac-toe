@@ -1,6 +1,7 @@
- const Game = (() => {
+const Game = (() => {
    let board = ['', '', '', '', '', '', '', '', ''];
    let turn = 0;
+   const getBoard = () => board;
    const getTurn = () => turn;
    const clearGame = () => {
      board = ['', '', '', '', '', '', '', '', ''];
@@ -59,9 +60,9 @@
    const players = [Player("X"), Player("O")];
 
    return {
-     board,
-     checkFin,
+     getBoard,
      getTurn,
+     checkFin,
      players,
      clearGame
    };
