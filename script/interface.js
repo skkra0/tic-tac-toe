@@ -26,6 +26,7 @@ grid-row-end: ${i % 3 + 2}`);
        document.getElementById("desc").textContent = `X's turn`;
        this.style.display = "none";
      });
+    document.getElementById("desc").textContent = `X's turn`;
    };
 
    const updateDisplay = () => {
