@@ -11,13 +11,12 @@ grid-row-end: ${i % 3 + 2}`);
        cells[i].addEventListener("click", function() {
          let currentPlayerIndex = Game.getTurn() % 2;
          if (currentPlayerIndex == 0 && Game.players[currentPlayerIndex].move(j)) {
-           InterfaceManager.updateBoard();
+           InterfaceManager.updateDisplay();
            Opponent.play();
-           setTimeout(InterfaceManager.updateBoard, 500);
+           setTimeout(InterfaceManager.updateDisplay, 500);
          }
        });
      }
-     document.getElementById("gameBoard").addEventListener("click", InterfaceManager.updateDesc);
 
      document.getElementById("reset").addEventListener("click", function() {
        Game.clearGame();
@@ -29,13 +28,7 @@ grid-row-end: ${i % 3 + 2}`);
      });
    };
 
-   const updateBoard = () => {
-     for (let i = 0; i < cells.length; i++) {
-       cells[i].textContent = Game.getBoard()[i];
-
-     }
-   }
-   const updateDesc = () => {
+   const updateDisplay = () => {
      let isFin = Game.checkFin();
      let desc = document.getElementById("desc");
      switch (isFin.gameState) {
@@ -50,11 +43,12 @@ grid-row-end: ${i % 3 + 2}`);
       case 0:
          desc.textContent = `${Game.players[Game.getTurn() % 2].sym}'s turn`;
      }
+    for (let i = 0; i < cells.length; i++) {
+       cells[i].textContent = Game.getBoard()[i];
+     }
    }
    return {
-     init,
-     updateBoard,
-     updateDesc
+     init
    };
  })();
  InterfaceManager.init();
