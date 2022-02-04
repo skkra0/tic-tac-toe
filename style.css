@@ -20,6 +20,6 @@ button {
 #gameBoard > div {
   background-color: #96ED89;
   border: 1px solid #044D29;
-  font-size: 25vh;
+  font-size: 15vh;
   text-align: center;
 }
