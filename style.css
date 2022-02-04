@@ -1,12 +1,12 @@
 body {
-  font: 8vh "Verdana", "Trebuchet MS", sans-serif;
+  font: 6vh "Verdana", "Trebuchet MS", sans-serif;
   color: #00261C;
   text-align: center;
   background-color: #168039;
 }
 button {
   border: 0;
-  font: 6vh "Verdana", "Trebuchet MS", sans-serif;
+  font: 4vh "Verdana", "Trebuchet MS", sans-serif;
   color: #96ED89;
   background-color: #45BF55;
   padding: 0.5rem;
