@@ -49,7 +49,8 @@ grid-row-end: ${i % 3 + 2}`);
      }
    }
    return {
-     init
+     init,
+     updateDisplay
    };
  })();
  InterfaceManager.init();
