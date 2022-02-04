@@ -11,8 +11,9 @@ grid-row-end: ${i % 3 + 2}`);
        cells[i].addEventListener("click", function() {
          let currentPlayerIndex = Game.getTurn() % 2;
          if (currentPlayerIndex == 0 && Game.players[currentPlayerIndex].move(j)) {
-           Opponent.play();
            InterfaceManager.updateBoard();
+           Opponent.play();
+           setTimeout(InterfaceManager.updateBoard, 500);
          }
        });
      }
@@ -26,8 +27,6 @@ grid-row-end: ${i % 3 + 2}`);
        document.getElementById("desc").textContent = `X's turn`;
        this.style.display = "none";
      });
-
-     document.getElementById("desc").textContent = `X's turn`;
    };
 
    const updateBoard = () => {
@@ -48,6 +47,8 @@ grid-row-end: ${i % 3 + 2}`);
          desc.textContent = `Winner: ${isFin.winner}`;
          document.getElementById("reset").style.display = "inline-block";
          break
+      case 0:
+         desc.textContent = `${Game.players[Game.getTurn() % 2].sym}'s turn`;
      }
    }
    return {
