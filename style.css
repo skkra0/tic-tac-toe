@@ -1,14 +1,21 @@
 body {
   font: 6vh "Verdana", "Trebuchet MS", sans-serif;
-  color: #00261C;
+  color: black;
   text-align: center;
-  background-color: #fff;
+  background-color: white;
+}
+select {
+    font: 4vh "Verdana", "Trebuchet MS", sans-serif;
+    padding: 0.5rem;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid black;
 }
 button {
   border: 1px solid black;
   font: 4vh "Verdana", "Trebuchet MS", sans-serif;
-  color: #000;
-  background-color: #fff;
+  color: black;
+  background-color: white;
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
@@ -18,8 +25,8 @@ button {
   grid-gap: 0;
 }
 #gameBoard > div {
-  background-color: #fff;
-  border: 1px solid #044D29;
+  background-color: white;
+  border: 1px solid black;
   font-size: 12vh;
   text-align: center;
 }
