@@ -2,7 +2,7 @@ body {
   font: 6vh "Verdana", "Trebuchet MS", sans-serif;
   color: #00261C;
   text-align: center;
-  background-color: #168039;
+  background-color: #fff;
 }
 button {
   border: 0;
@@ -14,11 +14,11 @@ button {
 }
 #gameBoard {
   display: inline-grid;
-  grid: 20vh 20vh 20vh / 20vh 20vh 20vh;
+  grid: 15vh 15vh 15vh / 15vh 15vh 15vh;
   grid-gap: 0;
 }
 #gameBoard > div {
-  background-color: #96ED89;
+  background-color: #fff;
   border: 1px solid #044D29;
   font-size: 15vh;
   text-align: center;
