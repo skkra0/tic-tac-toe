@@ -5,7 +5,7 @@ body {
   background-color: #fff;
 }
 button {
-  border: 0;
+  border: 1px solid black;
   font: 4vh "Verdana", "Trebuchet MS", sans-serif;
   color: #000;
   background-color: #fff;
