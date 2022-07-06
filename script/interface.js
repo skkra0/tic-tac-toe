@@ -1,5 +1,8 @@
  const InterfaceManager = (() => {
    let cells = document.querySelectorAll("#gameBoard > div");
+   let difficulty = "easy";
+   let desc = document.getElementById("desc");
+     
    const init = () => {
      for (let i = 0; i < cells.length; i++) {
        const j = i;
@@ -12,26 +15,38 @@ grid-row-end: ${i % 3 + 2}`);
          let currentPlayerIndex = Game.getTurn() % 2;
          if (currentPlayerIndex == 0 && Game.players[currentPlayerIndex].move(j)) {
            InterfaceManager.updateDisplay();
-           Opponent.play();
-           setTimeout(InterfaceManager.updateDisplay, 500);
+           
+           let oppMoveValid;
+           if (difficulty === "easy") {  
+               oppMoveValid = Game.players[1].move( Opponent.random() );
+            } else if (difficulty === "hard") {
+               oppMoveValid = Game.players[1].move( Opponent.minimax(Game.getBoard()).move.index );
+           } else {
+               throw "lol what";
+           }
+
+           if (oppMoveValid) setTimeout(InterfaceManager.updateDisplay, 500);
          }
        });
      }
-
+    document.getElementById("difficulty").addEventListener("input", function() {
+        Game.clearGame();
+        InterfaceManager.updateDisplay();
+        desc.textContent = `X's turn`;
+        document.getElementById("reset").style.display = "none";
+        difficulty = this.value;
+    });
      document.getElementById("reset").addEventListener("click", function() {
        Game.clearGame();
-       for (let i = 0; i < cells.length; i++) {
-         cells[i].textContent = "";
-       }
-       document.getElementById("desc").textContent = `X's turn`;
+       InterfaceManager.updateDisplay();
+       desc.textContent = `X's turn`;
        this.style.display = "none";
      });
-    document.getElementById("desc").textContent = `X's turn`;
+    desc.textContent = `X's turn`;
    };
 
-   const updateDisplay = () => {
+   const updateDisplay = () => { // fix so that it doesn't update every single cell every time
      let isFin = Game.checkFin();
-     let desc = document.getElementById("desc");
      switch (isFin.gameState) {
        case -1:
          desc.textContent = "Tie";
