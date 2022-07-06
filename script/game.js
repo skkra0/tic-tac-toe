@@ -1,16 +1,7 @@
 const Game = (() => {
    let board = ['', '', '', '', '', '', '', '', ''];
    let turn = 0;
-   const getBoard = () => board;
-   const getTurn = () => turn;
-   const clearGame = () => {
-     board = ['', '', '', '', '', '', '', '', ''];
-     turn = 0;
-   };
-   const checkFin = () => {
-     let gameState = 0;
-     let winner = null;
-     const winCombos = [
+   const winCombos = [
        [0, 1, 2],
        [3, 4, 5],
        [6, 7, 8],
@@ -20,11 +11,22 @@ const Game = (() => {
        [0, 4, 8],
        [2, 4, 6]
      ];
+
+   const getBoard = () => board;
+   const getTurn = () => turn;
+   const clearGame = () => {
+     board = ['', '', '', '', '', '', '', '', ''];
+     turn = 0;
+   };
+
+   const checkFin = (b=board) => {
+     let gameState;
+     let winner = null;
      for (let combo of winCombos) {
-       if (board[combo[0]] === board[combo[1]] && board[combo[1]] === board[combo[2]]) {
-         if (board[combo[0]]) {
+       if (b[combo[0]] === b[combo[1]] && b[combo[1]] === b[combo[2]]) {
+         if (b[combo[0]]) {
            gameState = 1;
-           winner = board[combo[0]];
+           winner = b[combo[0]];
            return {
              gameState,
              winner
@@ -32,7 +34,8 @@ const Game = (() => {
          }
        }
      }
-     if (board.find(t => t === "") !== "") {
+     if (b.findIndex(c =>  c === "") === -1) {
+         console.log("hey")
        gameState = -1; // board full w/ no win(tie)
      } else {
        gameState = 0;
@@ -64,6 +67,7 @@ const Game = (() => {
      getTurn,
      checkFin,
      players,
-     clearGame
+     clearGame,
+     winCombos
    };
  })();
