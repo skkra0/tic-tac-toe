@@ -20,25 +20,20 @@ const Game = (() => {
    };
 
    const checkFin = (b=board) => {
-     let gameState;
+     let gameState = 0;
      let winner = null;
      for (let combo of winCombos) {
-       if (b[combo[0]] === b[combo[1]] && b[combo[1]] === b[combo[2]]) {
-         if (b[combo[0]]) {
+       if (b[combo[0]] && b[combo[0]] === b[combo[1]] && b[combo[1]] === b[combo[2]]) {
            gameState = 1;
            winner = b[combo[0]];
            return {
              gameState,
              winner
            };
-         }
        }
      }
      if (b.findIndex(c =>  c === "") === -1) {
-         console.log("hey")
        gameState = -1; // board full w/ no win(tie)
-     } else {
-       gameState = 0;
      }
      return {
        gameState,
