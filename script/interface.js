@@ -24,7 +24,7 @@ setTimeout(() => {
                throw "lol what";
            }
                InterfaceManager.updateDisplay();
-           }, 100); //https://stackoverflow.com/questions/66574622/javascript-not-finishing-dom-update-and-moving-to-next-function
+           }, 500); //https://stackoverflow.com/questions/66574622/javascript-not-finishing-dom-update-and-moving-to-next-function
          }
        });
      }
