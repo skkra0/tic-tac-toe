@@ -15,17 +15,16 @@ grid-row-end: ${i % 3 + 2}`);
          let currentPlayerIndex = Game.getTurn() % 2;
          if (currentPlayerIndex == 0 && Game.players[currentPlayerIndex].move(j)) {
            InterfaceManager.updateDisplay();
-           
-           let oppMoveValid;
-           if (difficulty === "easy") {  
-               oppMoveValid = Game.players[1].move( Opponent.random() );
+setTimeout(() => {
+               if (difficulty === "easy") {  
+               Game.players[1].move( Opponent.random() );
             } else if (difficulty === "hard") {
-               oppMoveValid = Game.players[1].move( Opponent.minimax(Game.getBoard()).move.index );
+               Game.players[1].move( Opponent.minimax(Game.getBoard()).move.index );
            } else {
                throw "lol what";
            }
-
-           if (oppMoveValid) setTimeout(InterfaceManager.updateDisplay, 500);
+               InterfaceManager.updateDisplay();
+           }, 100); //https://stackoverflow.com/questions/66574622/javascript-not-finishing-dom-update-and-moving-to-next-function
          }
        });
      }
